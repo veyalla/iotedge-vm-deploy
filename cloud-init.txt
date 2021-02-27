@@ -38,7 +38,7 @@ runcmd:
         done
         apt install aziot-identity-service=1.2.0~rc4-1
         apt install aziot-edge=1.2.0~rc4-1 
-        echo '
+        cat > //etc//aziot//config.toml <<- "EOF"
         [provisioning]
         source = "manual"
         connection_string = "variables('dcs')"
@@ -61,7 +61,7 @@ runcmd:
         [moby_runtime]
         uri = "unix://////var//run//docker.sock"
         network = "azure-iot-edge"
-        ' > //etc//aziot//config.toml
+EOF
         iotedge config apply -c '//etc//aziot//config.toml'
         apt install deviceupdate-agent 
         apt install deliveryoptimization-plugin-apt
