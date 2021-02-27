@@ -36,11 +36,9 @@ runcmd:
         while [ $(ps -ef | grep -v grep | grep docker | wc -l) -le 0 ]; do 
           sleep 3
         done
-	
 	apt install aziot-identity-service=1.2.0~rc4-1
 	apt install aziot-edge=1.2.0~rc4-1 
-
-	cat <<EOF >/etc/aziot/config.toml
+	echo '
 	[provisioning]
 	source = "manual"
 	connection_string = "variables('dcs')"
@@ -63,10 +61,8 @@ runcmd:
 	[moby_runtime]
 	uri = "unix:///var/run/docker.sock"
 	network = "azure-iot-edge"
-	EOF
-
+	' > /etc/aziot/config.toml
 	iotedge config apply -c '/etc/aziot/config.toml'
-
 	apt install deviceupdate-agent 
 	apt install deliveryoptimization-plugin-apt
 	systemctl restart adu-agent
