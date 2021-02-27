@@ -61,8 +61,8 @@ runcmd:
         [moby_runtime]
         uri = "unix:///var/run/docker.sock"
         network = "azure-iot-edge"
-        ' > /etc/aziot/config.toml
-        iotedge config apply -c '/etc/aziot/config.toml'
+        ' > //etc//aziot//config.toml
+        iotedge config apply -c '//etc//aziot//config.toml'
         apt install deviceupdate-agent 
         apt install deliveryoptimization-plugin-apt
         systemctl restart adu-agent
