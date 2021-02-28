@@ -37,8 +37,8 @@ runcmd:
           sleep 3
         done
   
-        apt install aziot-identity-service=1.2.0~rc4-1
-        apt install aziot-edge=1.2.0~rc4-1 
+        #apt install aziot-identity-service=1.2.0~rc4-1
+        #apt install aziot-edge=1.2.0~rc4-1 
 
         cat <<EOF >/etc/aziot/config.toml
         [provisioning]
@@ -65,7 +65,7 @@ runcmd:
         network = "azure-iot-edge"
         EOF
 
-        iotedge config apply -c /etc/aziot/config.toml
+        #iotedge config apply -c /etc/aziot/config.toml
 
         apt install deviceupdate-agent 
         apt install deliveryoptimization-plugin-apt
