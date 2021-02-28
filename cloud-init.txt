@@ -42,7 +42,7 @@ runcmd:
 
         mkdir /etc/aziot
         wget https://raw.githubusercontent.com/veyalla/iotedge-vm-deploy/1.2.0-rc4/config.toml -O /etc/aziot/config.toml
-        sed -i "s#(connection_string = ).*#\1"', variables('dcs'), '"#g" /etc/aziot/config.toml
+        sed -i "s#\(connection_string = \).*#\1\"', variables('dcs'), '\"#g" /etc/aziot/config.toml
 
         # iotedge config apply -c /etc/aziot/config.toml
 
