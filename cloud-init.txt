@@ -36,6 +36,7 @@ runcmd:
         while [ $(ps -ef | grep -v grep | grep docker | wc -l) -le 0 ]; do 
           sleep 3
         done
+
         apt install aziot-identity-service=1.2.0~rc4-1
         apt install aziot-edge=1.2.0~rc4-1 
         sed -i "s#(connection_string = ).*#\1"variables('dcs')"#g" /etc/aziot/config.toml
