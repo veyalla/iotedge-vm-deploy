@@ -40,7 +40,7 @@ runcmd:
         #apt install aziot-identity-service=1.2.0~rc4-1
         #apt install aziot-edge=1.2.0~rc4-1 
 
-        cat <<EOF >/etc/aziot/config.toml
+        sudo cat <<EOF >/etc/aziot/config.toml
         [provisioning]
         source = "manual"
         connection_string = "', variables('dcs'), '"
@@ -67,8 +67,8 @@ runcmd:
 
         #iotedge config apply -c /etc/aziot/config.toml
 
-        apt install deviceupdate-agent 
-        apt install deliveryoptimization-plugin-apt
-        systemctl restart adu-agent
+        #apt install deviceupdate-agent 
+        #apt install deliveryoptimization-plugin-apt
+        #systemctl restart adu-agent
       ) &
 
