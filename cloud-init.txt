@@ -37,7 +37,6 @@ runcmd:
           sleep 3
         done
 
-        sed -i "s#(connection_string = ).*#\1"variables('dcs')"#g" /etc/aziot/config.toml
         iotedge config apply -c '/etc/aziot/config.toml'
         apt install deviceupdate-agent 
         apt install deliveryoptimization-plugin-apt
