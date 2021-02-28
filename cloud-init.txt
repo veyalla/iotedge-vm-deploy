@@ -63,7 +63,7 @@ runcmd:
         [moby_runtime]
         uri = "unix:///var/run/docker.sock"
         network = "azure-iot-edge"
-        EOF
+EOF
 
         #iotedge config apply -c /etc/aziot/config.toml
 
